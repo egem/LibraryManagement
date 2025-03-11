@@ -41,37 +41,6 @@ export class Controller {
 
       userId = +userIdStr;
 
-      const requirements = await this.requirementsService.getRequirements();
-
-      const { query } = req;
-
-      if (!query) {
-        throw new InternalError('Request query is null');
-      }
-
-      const {
-        count,
-        page
-      } = query;
-
-      const nPage = page ? +page : 1;
-      const nCount = count ? +count : requirements.http.query.maxCount;
-
-      if (nPage < requirements.http.query.minPage) {
-        throw new InvalidRequest(
-          `Page value is out of range ${nPage}`
-        );
-      }
-
-      if (
-        nCount < requirements.http.query.minCount ||
-        nCount > requirements.http.query.maxCount
-      ) {
-        throw new InvalidRequest(
-          `Count value is out of range: ${nCount}`
-        );
-      }
-
       const user: User | null = await this.userService.retrieveUserById(userId);
 
       if (!user) {

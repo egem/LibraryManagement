@@ -4,7 +4,6 @@ import {
 } from 'express';
 
 import { Book } from 'Services/DatabaseService/Tables/Book.model';
-import { IRequirementsService } from 'Services/RequirementsService/Interface';
 import { IBookService } from 'Services/BookService/Interface';
 import { InternalError } from 'Exceptions/InternalError.exception';
 import { InvalidRequest } from 'Exceptions/InvalidRequest.exception';
@@ -16,7 +15,6 @@ export class Controller {
 
   constructor(
     private readonly bookService: IBookService,
-    private readonly requirementsService: IRequirementsService,
     private readonly logService: ILogService
   ) { }
 
@@ -40,37 +38,6 @@ export class Controller {
       }
 
       bookId = +bookIdStr;
-
-      const requirements = await this.requirementsService.getRequirements();
-
-      const { query } = req;
-
-      if (!query) {
-        throw new InternalError('Request query is null');
-      }
-
-      const {
-        count,
-        page
-      } = query;
-
-      const nPage = page ? +page : 1;
-      const nCount = count ? +count : requirements.http.query.maxCount;
-
-      if (nPage < requirements.http.query.minPage) {
-        throw new InvalidRequest(
-          `Page value is out of range ${nPage}`
-        );
-      }
-
-      if (
-        nCount < requirements.http.query.minCount ||
-        nCount > requirements.http.query.maxCount
-      ) {
-        throw new InvalidRequest(
-          `Count value is out of range: ${nCount}`
-        );
-      }
 
       const book: Book | null = await this.bookService.retrieveBookById(bookId);
 

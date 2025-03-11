@@ -1,0 +1,27 @@
+{
+	"id": "37d75298-2c11-496f-b74c-5be17c451f40",
+	"name": "Library Test Cases",
+	"values": [
+		{
+			"key": "protocol",
+			"value": "http",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "hostname",
+			"value": "localhost",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "port",
+			"value": "3000",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-03-11T15:25:00.758Z",
+	"_postman_exported_using": "Postman/11.36.0"
+}

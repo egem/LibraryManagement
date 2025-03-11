@@ -12,7 +12,7 @@ export class Borrow extends Model {
   public userId!: number;
   public bookId!: number;
   public score!: number | null;
-  public borrewedAt!: Date;
+  public borrowedAt!: Date;
   public returnedAt!: Date | null;
 }
 

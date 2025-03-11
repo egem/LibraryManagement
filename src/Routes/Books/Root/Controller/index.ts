@@ -68,7 +68,10 @@ export class Controller {
           limit: nCount,
           offset: (nPage - 1) * nCount,
           attributes: ['id'],
-          raw: true
+          raw: true,
+          order: [
+            ['id', 'ASC']
+          ]
         }
       );
 

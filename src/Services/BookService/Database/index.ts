@@ -2,10 +2,15 @@ import { FindOptions, Identifier } from 'sequelize';
 
 import { Book } from 'Services/DatabaseService/Tables/Book.model';
 import { IBookService } from 'Services/BookService/Interface';
+import { InvalidRequest } from 'Exceptions/InvalidRequest.exception';
 
 export class BookService implements IBookService {
   async createBook(newBook: Pick<Book, 'name'>): Promise<Book | null> {
     try {
+      if (!newBook?.name) {
+        throw new InvalidRequest('Name is empty');
+      }
+
       const createdBook: Book = await Book.create(
         {
           name: newBook.name

@@ -7,7 +7,9 @@
     "lint": "eslint 'src/**/*.ts'",
     "build": "npm run lint && npx tsc",
     "start": "npm run build && DOTENV_CONFIG_PATH=./env/dev.env node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config build/index.js",
-    "test": "node -r ts-node/register/transpile-only -r tsconfig-paths/register node_modules/jasmine/bin/jasmine.js --config=jasmine.json",
+    "test": "npm run build && node -r ts-node/register/transpile-only -r tsconfig-paths/register node_modules/jasmine/bin/jasmine.js --config=jasmine.json",
+    "postman-tests": "newman run ./tests/postman/test-suite/collection.json -e ./tests/postman/test-suite/environment.json",
+    "postman-tests-report": "newman run ./tests/postman/test-suite/collection.json -e ./tests/postman/test-suite/environment.json --reporters cli,json --reporter-json-export ./tests/postman/test-suite/results/report.json",
     "serve": "nodemon"
   },
   "keywords": [],
@@ -18,13 +20,13 @@
     "@types/dotenv": "^8.2.3",
     "@types/express": "^5.0.0",
     "@types/express-validator": "^3.0.2",
-    "@types/jasmine": "^5.1.5",
+    "@types/jasmine": "^5.1.7",
     "@types/node": "^22.10.5",
     "@typescript-eslint/eslint-plugin": "^8.26.0",
     "@typescript-eslint/parser": "^8.26.0",
     "eslint": "^9.22.0",
     "globals": "^15.14.0",
-    "jasmine": "^5.5.0",
+    "jasmine": "^5.6.0",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.2",
@@ -44,6 +46,7 @@
     "nocache": "^4.0.0",
     "nodemon": "^3.1.9",
     "pg": "^8.13.3",
-    "sequelize": "^6.37.6"
+    "sequelize": "^6.37.6",
+    "sequelize-mock": "^0.10.2"
   }
 }

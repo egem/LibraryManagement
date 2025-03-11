@@ -1,3 +1,5 @@
+CREATE DATABASE library_management3;
+
 -- Create users table
 CREATE TABLE users (
     "id" SERIAL PRIMARY KEY,

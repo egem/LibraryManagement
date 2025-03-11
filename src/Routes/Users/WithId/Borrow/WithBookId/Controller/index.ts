@@ -87,7 +87,7 @@ export class Controller {
         id: borrow.id
       };
 
-      res.status(201).send(response);
+      res.status(200).send(response);
     } catch (error) {
       const errorMessage = `Error while creating borrow: ${error}`;
 

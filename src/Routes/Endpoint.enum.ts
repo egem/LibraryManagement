@@ -1,4 +1,5 @@
 export enum Endpoint {
-  Users = '/users',
-  Books = '/books'
+  Books = '/books',
+  Borrowings = '/borrowings',
+  Users = '/users'
 }

@@ -1,4 +1,4 @@
-import { Identifier } from 'sequelize';
+import { FindOptions, Identifier } from 'sequelize';
 
 import { Borrow } from 'Services/DatabaseService/Tables/Borrow.model';
 import { IBorrowService } from 'Services/BorrowService/Interface';
@@ -24,6 +24,16 @@ export class BorrowService implements IBorrowService {
       const borrow: Borrow | null = await Borrow.findByPk(identifier);
 
       return Promise.resolve(borrow);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+
+  async retriveBorrowings(query: FindOptions): Promise<Borrow[]> {
+    try {
+      const borrowings: Borrow[] = await Borrow.findAll(query);
+
+      return Promise.resolve(borrowings);
     } catch (error) {
       return Promise.reject(error);
     }

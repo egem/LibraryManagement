@@ -1,2 +1,3 @@
 build
 node_modules
+tests/postman/test-suite/results/*

@@ -102,7 +102,7 @@ export class Controller {
 
       await this.borrowManager.returnBook(userId, bookId, score);
 
-      res.status(201).send();
+      res.status(200).send();
     } catch (error) {
       const errorMessage = `Error while creating borrow: ${error}`;
 
