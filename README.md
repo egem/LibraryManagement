@@ -8,7 +8,7 @@ The case study involves setting up a PostgreSQL database and running scripts to 
 
 ## Documentation
 
-All relevant documentation for this project can be found in the `doc` folder. The documents in this folder provide detailed information about the project setup, schema structure, and other relevant details.
+All relevant documentation for this project can be found in the `doc` folder. The documents in this folder provide detailed information about the project setup and other relevant details.
 
 ## Setup Instructions
 
@@ -18,7 +18,7 @@ To set up the database, follow the instructions in the documentation located und
 
 ### 2. Install Dependencies
 
-After setting up the database, install the required packages by running the following command:
+To install the packages, please you can run the following command:
 
     $ npm install
 
@@ -50,4 +50,4 @@ To run the unit tests for the project, execute:
 
     $ npm run test
 
-This will run the unit tests and display the results in the terminal. Due to limited time, only some of the unit tests have been written.
+This will run the unit tests and display the results in the terminal. Due to time constraints, only some unit tests have been written.

@@ -9,7 +9,7 @@
     "start": "npm run build && DOTENV_CONFIG_PATH=./env/dev.env node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config build/index.js",
     "test": "npm run build && node -r ts-node/register/transpile-only -r tsconfig-paths/register node_modules/jasmine/bin/jasmine.js --config=jasmine.json",
     "postman-tests": "newman run ./tests/postman/test-suite/collection.json -e ./tests/postman/test-suite/environment.json",
-    "postman-tests-report": "newman run ./tests/postman/test-suite/collection.json -e ./tests/postman/test-suite/environment.json --reporters cli,json --reporter-json-export ./tests/postman/test-suite/results/report.json",
+    "postman-tests-report": "mkdir -p ./tests/postman/test-suite/results && newman run ./tests/postman/test-suite/collection.json -e ./tests/postman/test-suite/environment.json --reporters cli,json --reporter-json-export ./tests/postman/test-suite/results/report.json",
     "serve": "nodemon"
   },
   "keywords": [],

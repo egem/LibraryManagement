@@ -25,4 +25,4 @@ Before setting up the database, ensure that you have PostgreSQL installed. If no
     Finally, execute the script to create the schema and insert dummy data:
 
     ```sh
-    $ ./scripts/setup library_management
+    $ ./scripts/setup.sh library_management
