@@ -4,19 +4,22 @@ import {
   Router
 } from 'express';
 
+import {
+  bookService,
+  borrowService,
+  logService,
+  userService
+} from 'Config/Services';
+
 import { Controller } from './Controller';
-import { UserService } from 'Services/UserService/Database';
-import { ConsoleLogService } from 'Services/LogService/Console';
-import { BorrowService } from 'Services/BorrowService/Database';
-import { BookService } from 'Services/BookService/Database';
 
 export const router: Router = Router({ mergeParams: true });
 
 const controller = new Controller(
-  new UserService(),
-  new BorrowService(),
-  new BookService(),
-  new ConsoleLogService()
+  userService,
+  borrowService,
+  bookService,
+  logService
 );
 
 router.route('')

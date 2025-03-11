@@ -1,0 +1,21 @@
+import { BookService } from 'Services/BookService/Database';
+import { IBookService } from 'Services/BookService/Interface';
+import { IBorrowService } from 'Services/BorrowService/Interface';
+import { BorrowService } from 'Services/BorrowService/Database';
+import { ILogService } from 'Services/LogService/Interface';
+import { LogService as ConsoleLogService } from 'Services/LogService/Console';
+import { IRequirementsService } from 'Services/RequirementsService/Interface';
+import { RequirementsService } from 'Services/RequirementsService/HardCoded';
+import { ISecretService } from 'Services/SecretService/Interface';
+import { SecretService } from 'Services/SecretService/Filesystem';
+import { IUserService } from 'Services/UserService/Interface';
+import { UserService } from 'Services/UserService/Database';
+import { ValidationService } from 'Services/ValidationService';
+
+export const bookService: IBookService = new BookService();
+export const borrowService: IBorrowService = new BorrowService();
+export const logService: ILogService = new ConsoleLogService();
+export const requirementsService: IRequirementsService = new RequirementsService();
+export const secretService: ISecretService = new SecretService();
+export const userService: IUserService = new UserService();
+export const validationService = new ValidationService();

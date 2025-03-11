@@ -5,23 +5,26 @@ import {
 } from 'express';
 import { body } from 'express-validator';
 
+import {
+  bookService,
+  logService,
+  requirementsService,
+  userService,
+  validationService
+} from 'Config/Services';
+import { borrowManager } from 'Config/Managers';
+
 import { Controller } from './Controller';
-import { UserService } from 'Services/UserService/Database';
-import { ConsoleLogService } from 'Services/LogService/Console';
-import { BookService } from 'Services/BookService/Database';
-import { ValidationService } from 'Services/ValidationService';
-import { RequirementsService } from 'Services/RequirementsService/HardCoded';
-import { BorrowManager } from 'Managers/BorrowManager';
 
 export const router: Router = Router({ mergeParams: true });
 
 const controller = new Controller(
-  new UserService(),
-  new BookService(),
-  new ValidationService(),
-  new RequirementsService(),
-  new ConsoleLogService(),
-  new BorrowManager()
+  userService,
+  bookService,
+  validationService,
+  requirementsService,
+  logService,
+  borrowManager
 );
 
 router.route('')

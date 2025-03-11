@@ -5,19 +5,22 @@ import {
 } from 'express';
 import { body } from 'express-validator';
 
+import {
+  bookService,
+  logService,
+  requirementsService,
+  validationService
+} from 'Config/Services';
+
 import { Controller } from './Controller';
-import { ConsoleLogService } from 'Services/LogService/Console';
-import { RequirementsService } from 'Services/RequirementsService/HardCoded';
-import { BookService } from 'Services/BookService/Database';
-import { ValidationService } from 'Services/ValidationService';
 
 export const router: Router = Router({ mergeParams: true });
 
 const controller = new Controller(
-  new BookService(),
-  new RequirementsService(),
-  new ValidationService(),
-  new ConsoleLogService()
+  bookService,
+  requirementsService,
+  validationService,
+  logService
 );
 
 router.route('')
